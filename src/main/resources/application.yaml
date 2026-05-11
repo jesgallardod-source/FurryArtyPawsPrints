@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: ViewModule
+  r2dbc:
+    url: r2dbc:h2:mem:///furryartsypawprints;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+  sql:
+    init:
+      mode: always
+
+server:
+  port: 8081
+
+logging:
+  level:
+    root: INFO
+    io.r2dbc.h2: DEBUG
