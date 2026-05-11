@@ -1,18 +1,18 @@
-CREATE TABLE IF NOT EXISTS users (
-                                     user_id IDENTITY PRIMARY KEY,
-                                     user_name VARCHAR(255) NOT NULL,
-    user_last_name VARCHAR(255) NOT NULL,
-    user_email VARCHAR(255) NOT NULL UNIQUE,
-    user_password VARCHAR(255) NOT NULL,
-    user_location VARCHAR(255),
-    user_type VARCHAR(50),
-    user_preferences TEXT,
-    n_commissions INTEGER,
-    user_com_date TIMESTAMP,
-    user_com_message TEXT,
-    user_com_discount INTEGER,
-    user_twitter VARCHAR(500),
-    user_facebook VARCHAR(500),
-    user_blue_sky VARCHAR(500),
-    user_patreon VARCHAR(500)
-    );
+CREATE TABLE IF NOT EXISTS "users" (
+   "user_id" INT AUTO_INCREMENT PRIMARY KEY,
+   "user_name" VARCHAR(255) NOT NULL,
+   "user_last_name" VARCHAR(255) NOT NULL,
+   "user_email" VARCHAR(255) NOT NULL UNIQUE,
+   "user_password" VARCHAR(255) NOT NULL,
+   "user_location" VARCHAR(255),
+   "user_type" VARCHAR(50),
+   "user_preferences" TEXT,
+   "n_commissions" INTEGER,
+   "user_com_date" TIMESTAMP,
+   "user_com_message" TEXT,
+   "user_com_discount" INTEGER,
+   "user_twitter" VARCHAR(500),
+   "user_facebook" VARCHAR(500),
+   "user_blue_sky" VARCHAR(500),
+   "user_patreon" VARCHAR(500)
+);

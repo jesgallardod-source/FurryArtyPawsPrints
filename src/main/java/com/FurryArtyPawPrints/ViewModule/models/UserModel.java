@@ -1,5 +1,7 @@
 package com.FurryArtyPawPrints.ViewModule.models;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
@@ -17,6 +19,7 @@ public class UserModel {
 
     @Id
     @Column("user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
 
     @Column("user_name")
