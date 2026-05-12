@@ -1,0 +1,41 @@
+# AWS Credentials (if not using IAM roles)
+export AWS_ACCESS_KEY_ID=your-access-key
+export AWS_SECRET_ACCESS_KEY=your-secret-key
+export AWS_REGION=us-east-1
+
+# Or use IAM roles (recommended for EC2/ECS/EKS)
+# No environment variables needed - credentials will be picked up automatically
+
+
+   aws rds modify-db-cluster \
+     --db-cluster-identifier your-cluster-name \
+     --enable-iam-database-authentication \
+     --apply-immediately
+
+
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Action": [
+           "rds-db:connect"
+         ],
+         "Resource": [
+           "arn:aws:rds-db:region:account-id:dbuser:cluster-id/FAPPMasterUser"
+         ]
+       }
+     ]
+   }
+
+
+# Test if your IAM user can generate tokens
+aws rds generate-db-auth-token \
+  --hostname your-aurora-endpoint.region.rds.amazonaws.com \
+  --port 5432 \
+  --region us-east-1 \
+  --username FAPPMasterUser
+
+
+# Use the generated token to connect
+psql "host=your-aurora-endpoint.region.rds.amazonaws.com port=5432 dbname=furryartsypawprints user=FAPPMasterUser password=generated-token sslmode=require"

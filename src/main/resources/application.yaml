@@ -1,22 +1,29 @@
+server:
+  port: 8081
 spring:
   application:
     name: ViewModule
   r2dbc:
-    url: r2dbc:h2:mem:///furryartsypawprints;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    username: sa
-    password:
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
   sql:
     init:
       mode: always
+# AWS Aurora PostgreSQL Configuration
+aws:
+  rds:
+    host: 3ntym563zmsmhmbonlj47iw7ay.dsql.us-east-2.on.aws
+    port: 5432
+    region: us-east-2  # Replace with your AWS region
+    username: FAPPMasterUser  # Your IAM database username
+    database: furryArtsyPawsPrint  # Your database name
+    connection-timeout: 30
 
-server:
-  port: 8081
+jwt:
+  secret: 8ca42f9a3a7a589a02d1f37348ff451f9ec170af9c74c81c68ddda89be52970335df42cded640dbae213dcea117a2b80f11720076bbda3c6880cfd28a59bdf52
+  expiration: 900000  # 15 minutes in milliseconds
+  refresh-expiration: 86400000  # 24 hours in milliseconds
 
 logging:
   level:
     root: INFO
-    io.r2dbc.h2: DEBUG
+    com.FurryArtyPawPrints.ViewModule.utils.AwsIamAuthUtility: DEBUG
+    io.r2dbc.postgresql: DEBUG

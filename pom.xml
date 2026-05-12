@@ -41,6 +41,44 @@
 			<version>4.0.0-M2</version>
 			<scope>compile</scope>
 		</dependency>
+		<!-- Spring Security (reactive) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!-- JWT Token Library -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.12.3</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.13.0</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>0.12.3</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- Source: https://mvnrepository.com/artifact/software.amazon.awssdk/aws-core -->
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>aws-core</artifactId>
+			<version>2.20.162</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Password Encoding -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-crypto</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
@@ -48,6 +86,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
 		</dependency>
 
 		<dependency>
@@ -65,25 +107,48 @@
 			<artifactId>jakarta.persistence-api</artifactId>
 			<version>4.0.0-M2</version>
 		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+
 		<!-- Spring Data JPA -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-r2dbc</artifactId>
 		</dependency>
+		<!-- Source: https://mvnrepository.com/artifact/software.amazon.awssdk/dsql -->
 		<dependency>
-			<groupId>io.r2dbc</groupId>
-			<artifactId>r2dbc-h2</artifactId>
-			<scope>runtime</scope>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>dsql</artifactId>
+			<version>2.44.4</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Apache HTTP client for SigV4 signing -->
+		<dependency>
+			<groupId>org.apache.httpcomponents.client5</groupId>
+			<artifactId>httpclient5</artifactId>
+			<version>5.2.1</version>
+		</dependency>
+
+		<!-- AWS SDK v2 core dependencies -->
+		<!-- Source: https://mvnrepository.com/artifact/software.amazon.awssdk/core -->
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>core</artifactId>
+			<version>2.44.4</version>
+			<type>pom</type>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-r2dbc</artifactId>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>auth</artifactId>
+			<version>2.20.162</version>
 		</dependency>
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>http-client-spi</artifactId>
+			<version>2.20.162</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>io.r2dbc</groupId>
 			<artifactId>r2dbc-h2</artifactId>

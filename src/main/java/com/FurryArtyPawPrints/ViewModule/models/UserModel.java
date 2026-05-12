@@ -66,4 +66,14 @@ public class UserModel {
 
     @Column("user_patreon")
     private String userPatreon;
+
+    @Column("last_login")
+    private LocalDateTime lastLogin;
+
+    @Column("is_active")
+    private Boolean isActive = true;
+
+    @Column("created_at")
+    private LocalDateTime createdAt;
+
 }

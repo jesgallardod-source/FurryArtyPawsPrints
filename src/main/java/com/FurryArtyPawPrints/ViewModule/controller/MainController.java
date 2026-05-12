@@ -2,6 +2,8 @@ package com.FurryArtyPawPrints.ViewModule.controller;
 
 import com.FurryArtyPawPrints.ViewModule.constants.FAPPConstants;
 import com.FurryArtyPawPrints.ViewModule.interfaces.FAPPInterface;
+import com.FurryArtyPawPrints.ViewModule.models.LoginRequest;
+import com.FurryArtyPawPrints.ViewModule.models.LoginResponse;
 import com.FurryArtyPawPrints.ViewModule.models.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,9 +30,19 @@ public class MainController {
         return fappInterface.info();
     }
 
-
     @PostMapping(FAPPConstants.USER)
     public Mono<ResponseEntity<UserModel>> createUser(@RequestBody UserModel userModel) {
         return fappInterface.createUser(userModel);
     }
+
+    @PostMapping(FAPPConstants.LOGIN)
+    public Mono<ResponseEntity<LoginResponse>> login(@RequestBody LoginRequest loginRequest) {
+        return fappInterface.authenticateUser(loginRequest);
+    }
+
+    @PostMapping(FAPPConstants.VALIDATE_TOKEN)
+    public Mono<ResponseEntity<Map<String, Object>>> validateToken(@RequestHeader("Authorization") String token) {
+        return fappInterface.validateToken(token);
+    }
+
 }
